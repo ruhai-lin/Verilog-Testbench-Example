@@ -1,0 +1,16 @@
+FROM drichmond/cse-x25-dockerimage:base
+
+ENV LANG C.UTF-8
+ARG INSTALL_ZSH="true"
+
+
+RUN cd /opt && git clone https://github.com/nturley/netlistsvg
+RUN cd /opt/netlistsvg && npm install --legacy-peer-deps && npm install . -g
+
+RUN apt-get -y install sudo
+RUN useradd -ms /bin/bash cse-x25-student -G sudo -p "$(openssl passwd -1 ilikehdl)"
+USER cse-x25-student
+
+ENV PATH="/usr/local/bin/tabby/bin:$PATH"
+ENV YOSYSHQ_LICENSE="/usr/local/bin/tabby/license/yosyshq.lic"
+

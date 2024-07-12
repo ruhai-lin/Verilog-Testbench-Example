@@ -1,0 +1,12 @@
+{
+  "build": { "dockerfile": "Dockerfile" },
+  "features": {
+  },
+  "customizations": {
+    "vscode": {
+	"extensions": ["streetsidesoftware.code-spell-checker",
+		       "SimonSiefke.svg-preview",
+		       "wavetrace.wavetrace"]
+    }
+  },
+}
